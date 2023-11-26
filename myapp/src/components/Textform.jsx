@@ -5,12 +5,16 @@ export default function Textform(props) {
 
   const handleUpClick = function () {
     setText(text.toUpperCase());
+    props.showAlert("Converted to uppercase", "success");
   };
   const handleLoClick = function () {
     setText(text.toLowerCase());
+    props.showAlert("Converted to lowerCase", "success");
   };
+
   const handleSpaceClick = function () {
     setText(text.trim());
+    props.showAlert("Removed unwanted space", "success");
   };
 
   const handleOnChange = function (event) {

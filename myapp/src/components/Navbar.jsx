@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav
-      className="navbar navbar-expand-lg bg-body-primary"
-      data-bs-theme={props.node}
-    >
+    <nav className={`navbar navbar-expand-lg bg-${props.node} bg-body-primary`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a
+          className={`navbar-brand text-${
+            props.node === "light" ? "dark" : "light"
+          }`}
+          href="/"
+        >
           {props.title}
         </a>
         <button
@@ -27,7 +29,7 @@ export default function Navbar(props) {
             <li className="nav-item">
               <a
                 className={`nav-link active text-${
-                  props.mode === "light?dark:light"
+                  props.node === "light" ? "dark" : "light"
                 }`}
                 aria-current="page"
                 href="/"
@@ -48,6 +50,21 @@ export default function Navbar(props) {
           </ul>
         </div>
       </div>
+      {/* first button */}
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+          onClick={props.toggleOne}
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault">
+          Enable {props.node === "light" ? "primary" : "light"} Mode
+        </label>
+      </div>
+
+      {/* second switch */}
       <div className=" px-5 form-check form-switch">
         <input
           className="form-check-input"
