@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg bg-${props.node} bg-body-primary`}>
       <div className="container-fluid">
-        <a
+        <Link
           className={`navbar-brand text-${
             props.node === "light" ? "dark" : "light"
           }`}
-          href="/"
+          to="/"
         >
           {props.title}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,39 +28,39 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className={`nav-link active text-${
                   props.node === "light" ? "dark" : "light"
                 }`}
                 aria-current="page"
-                href="/"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className={`nav-link text-${
                   props.node === "dark" ? "light" : "dark"
                 }`}
-                href="/"
+                to="/about"
               >
                 {props.aboutText}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
       </div>
       {/* first button */}
-      <div class="form-check form-switch">
+      <div className="form-check form-switch">
         <input
-          class="form-check-input"
+          className="form-check-input"
           type="checkbox"
           role="switch"
           id="flexSwitchCheckDefault"
           onClick={props.toggleOne}
         />
-        <label class="form-check-label" for="flexSwitchCheckDefault">
+        <label className="form-check-label" for="flexSwitchCheckDefault">
           Enable {props.node === "light" ? "primary" : "light"} Mode
         </label>
       </div>
